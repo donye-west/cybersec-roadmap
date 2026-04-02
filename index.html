@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Career Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c10;
+    --surface: #0d1117;
+    --surface2: #111820;
+    --border: #1e2d3d;
+    --teal: #00d4aa;
+    --teal-dim: #00a882;
+    --blue: #4fc3f7;
+    --orange: #ff6b35;
+    --text: #c9d1d9;
+    --text-dim: #6e7681;
+    --text-bright: #f0f6fc;
+    --mono: 'Share Tech Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Bebas Neue', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* GRID BACKGROUND */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,170,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 60px;
+    position: relative;
+  }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--teal);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(64px, 10vw, 110px);
+    line-height: 0.92;
+    color: var(--text-bright);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.2s forwards;
+  }
+
+  .hero-title span {
+    color: var(--teal);
+    -webkit-text-stroke: 0px;
+  }
+
+  .hero-subtitle {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--blue);
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.3s forwards;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.4s forwards;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-val {
+    font-family: var(--display);
+    font-size: 36px;
+    color: var(--teal);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .hero-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--teal) 0%, var(--blue) 40%, transparent 100%);
+    margin: 60px 0 0;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.5s forwards;
+  }
+
+  /* PHASE */
+  .phase {
+    margin: 64px 0 0;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .phase-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .phase-num {
+    font-family: var(--display);
+    font-size: 80px;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--border);
+  }
+
+  .phase-info {}
+
+  .phase-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--teal);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .phase-title {
+    font-family: var(--display);
+    font-size: 32px;
+    color: var(--text-bright);
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+
+  .phase-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+
+  .phase-note {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: rgba(0,212,170,0.05);
+    border: 1px solid rgba(0,212,170,0.15);
+    border-left: 3px solid var(--teal);
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .phase-note-icon {
+    color: var(--teal);
+    font-size: 13px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .phase-note p {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--teal-dim);
+    line-height: 1.5;
+  }
+
+  /* WEEKS GRID */
+  .weeks {
+    display: grid;
+    gap: 2px;
+  }
+
+  .week-row {
+    display: grid;
+    grid-template-columns: 80px 160px 1fr 200px 80px;
+    gap: 0;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .week-row:hover {
+    transform: translateX(4px);
+    box-shadow: -4px 0 0 var(--teal), 0 4px 24px rgba(0,0,0,0.4);
+    z-index: 2;
+    position: relative;
+  }
+
+  .week-row.header-row {
+    background: var(--surface2);
+  }
+
+  .week-row.header-row:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .cell {
+    background: var(--surface);
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .week-row.header-row .cell {
+    background: var(--surface2);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 10px 16px;
+  }
+
+  .cell-week {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--border);
+  }
+
+  .cell-focus {
+    font-weight: 600;
+    color: var(--text-bright);
+    font-size: 13px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+
+  .cell-tasks {
+    color: var(--text);
+    border-right: 1px solid var(--border);
+  }
+
+  .cell-tasks ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .cell-tasks ul li {
+    padding-left: 14px;
+    position: relative;
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .cell-tasks ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: bold;
+  }
+
+  .cell-resources {
+    font-size: 12px;
+    color: var(--text-dim);
+    border-right: 1px solid var(--border);
+    font-family: var(--mono);
+    line-height: 1.7;
+  }
+
+  .cell-resources span {
+    display: block;
+  }
+
+  .res-free { color: var(--teal); }
+  .res-paid { color: var(--blue); }
+
+  .cell-cost {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--orange);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .cell-cost.free { color: var(--teal); }
+
+  /* COST SUMMARY */
+  .cost-section {
+    margin: 64px 0;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--teal);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .cost-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    max-width: 600px;
+  }
+
+  .cost-row {
+    display: contents;
+  }
+
+  .cost-item, .cost-val {
+    background: var(--surface);
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .cost-item { color: var(--text); }
+  .cost-val {
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .cost-row.total .cost-item {
+    background: var(--surface2);
+    color: var(--text-bright);
+    font-weight: 600;
+  }
+
+  .cost-row.total .cost-val {
+    background: var(--surface2);
+    color: var(--teal);
+    font-family: var(--display);
+    font-size: 22px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  /* DESIGN CALLOUT */
+  .design-callout {
+    margin: 40px 0 80px;
+    padding: 24px 28px;
+    border: 1px solid rgba(79,195,247,0.2);
+    background: rgba(79,195,247,0.04);
+    border-radius: 4px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .callout-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .callout-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--blue);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .callout-body {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .callout-body strong { color: var(--blue); }
+
+  /* COMMUNITY NOTES SECTION */
+  .notes-section {
+    margin: 64px 0 80px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .notes-info p {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 8px;
+  }
+
+  .add-note-form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 32px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-group label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--teal);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-family: var(--sans);
+    font-size: 13px;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn:hover {
+    background: var(--surface);
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: var(--bg);
+    border-color: var(--teal);
+  }
+
+  .btn-primary:hover {
+    background: var(--teal-dim);
+    border-color: var(--teal-dim);
+    color: var(--bg);
+  }
+
+  .filter-bar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .filter-group label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .filter-group select {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 11px;
+  }
+
+  .notes-list {
+    display: grid;
+    gap: 16px;
+  }
+
+  .note-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 4px 4px 0;
+    padding: 16px 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .note-card:hover {
+    transform: translateX(4px);
+    box-shadow: -4px 0 0 var(--teal), 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+  .note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+
+  .note-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .note-author {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+  }
+
+  .note-phase {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+
+  .note-timestamp {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .note-content {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.6;
+    white-space: pre-wrap;
+    font-family: var(--mono);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-dim);
+  }
+
+  .empty-state-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.3;
+  }
+
+  .empty-state p {
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+
+  .loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--teal);
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .phase:nth-child(1) { animation-delay: 0.5s; }
+  .phase:nth-child(2) { animation-delay: 0.6s; }
+  .phase:nth-child(3) { animation-delay: 0.7s; }
+  .phase:nth-child(4) { animation-delay: 0.8s; }
+  .cost-section { animation-delay: 0.9s; }
+  .design-callout { animation-delay: 1.0s; }
+  .notes-section { animation-delay: 1.1s; }
+
+  /* SCANLINE EFFECT */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -24px; right: -24px; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.08) 2px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .week-row {
+      grid-template-columns: 1fr;
+    }
+    .hero-stats { gap: 24px; }
+    .cost-grid { grid-template-columns: 1fr; }
+    .cell-resources { display: none; }
+    .week-row { grid-template-columns: 70px 1fr 80px; }
+    .cell-focus, .cell-tasks { display: block; }
+    .week-row.header-row .cell:nth-child(4) { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">// career_transition.plan — v1.0</div>
+    <div class="hero-title">CYBER<span>SEC</span><br>ROADMAP</div>
+    <div class="hero-subtitle">Designer → Security Professional &nbsp;|&nbsp; Self-Study Path</div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-val">18</span>
+        <span class="stat-label">Months</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val">4</span>
+        <span class="stat-label">Phases</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val">3+</span>
+        <span class="stat-label">Certifications</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val">&lt;$2K</span>
+        <span class="stat-label">Total Cost</span>
+      </div>
+    </div>
+    <div class="hero-divider"></div>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">01</div>
+      <div class="phase-info">
+        <div class="phase-label">// Phase One</div>
+        <div class="phase-title">IT FOUNDATIONS</div>
+        <div class="phase-meta">Weeks 1–8 &nbsp;·&nbsp; Goal: CompTIA A+ & Network+</div>
+      </div>
+    </div>
+    <div class="phase-note">
+      <div class="phase-note-icon">!</div>
+      <p>Don't skip this phase even if it feels basic. Networking and OS fundamentals are tested daily in real security work.</p>
+    </div>
+    <div class="weeks">
+      <div class="week-row header-row">
+        <div class="cell">Week</div>
+        <div class="cell">Focus</div>
+        <div class="cell">Tasks & Goals</div>
+        <div class="cell">Resources</div>
+        <div class="cell">Cost</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 1–2</div>
+        <div class="cell cell-focus">Computer Hardware & OS Basics</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Watch Professor Messer A+ Core 1 videos (free)</li>
+          <li>Learn CPU, RAM, storage, motherboard concepts</li>
+          <li>Install VirtualBox — set up Windows & Ubuntu VMs</li>
+          <li>Goal: Comfortable with hardware terminology</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-free">Professor Messer (free)</span>
+          <span class="res-free">VirtualBox (free)</span>
+          <span class="res-free">YouTube: PowerCert Animated</span>
+        </div>
+        <div class="cell cell-cost free">Free</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 3–4</div>
+        <div class="cell cell-focus">Operating Systems Deep Dive</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Windows file system, registry, user accounts</li>
+          <li>Linux CLI basics: ls, cd, chmod, grep, ssh</li>
+          <li>Networking intro: IP addresses, subnets, DNS, DHCP</li>
+          <li>Practice daily Linux terminal use</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-free">Professor Messer A+ Core 2</span>
+          <span class="res-free">OverTheWire: Bandit</span>
+          <span class="res-free">TryHackMe: Pre-Security path</span>
+        </div>
+        <div class="cell cell-cost free">Free</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 5–6</div>
+        <div class="cell cell-focus">A+ Exam Prep & Exam</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Review all A+ Core 1 + Core 2 objectives</li>
+          <li>Take 3–4 full practice exams (aim 85%+ consistently)</li>
+          <li>Focus weak areas: troubleshooting methodology</li>
+          <li>Schedule and sit CompTIA A+ Core 1 exam</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-paid">Professor Messer Practice Exams ($15)</span>
+          <span class="res-free">ExamCompass (free)</span>
+          <span class="res-paid">Jason Dion Udemy (~$15)</span>
+        </div>
+        <div class="cell cell-cost">~$260</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 7–8</div>
+        <div class="cell cell-focus">Networking Foundations</div>
+        <div class="cell cell-tasks"><ul>
+          <li>OSI model, TCP/IP, subnetting (practice daily)</li>
+          <li>Routing, switching, VLANs, firewalls, VPNs</li>
+          <li>Sit CompTIA A+ Core 2 exam</li>
+          <li>Begin Professor Messer Network+ course</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-free">Professor Messer Network+ (free)</span>
+          <span class="res-free">subnettingpractice.com</span>
+          <span class="res-free">Cisco Packet Tracer (free)</span>
+        </div>
+        <div class="cell cell-cost">~$260</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">02</div>
+      <div class="phase-info">
+        <div class="phase-label">// Phase Two</div>
+        <div class="phase-title">SECURITY FUNDAMENTALS</div>
+        <div class="phase-meta">Weeks 9–18 &nbsp;·&nbsp; Goal: CompTIA Security+</div>
+      </div>
+    </div>
+    <div class="phase-note">
+      <div class="phase-note-icon">!</div>
+      <p>Security+ is your golden ticket. DoD-approved, widely required in job postings, and respected by hiring managers everywhere.</p>
+    </div>
+    <div class="weeks">
+      <div class="week-row header-row">
+        <div class="cell">Week</div>
+        <div class="cell">Focus</div>
+        <div class="cell">Tasks & Goals</div>
+        <div class="cell">Resources</div>
+        <div class="cell">Cost</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 9–10</div>
+        <div class="cell cell-focus">Network+ Exam + Security Intro</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Final Network+ practice exams — sit the exam</li>
+          <li>Begin Security+ content: threats, attacks, vuln types</li>
+          <li>Learn CIA Triad, AAA, common attack vectors</li>
+          <li>Join r/CompTIA and r/cybersecurity communities</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-paid">Professor Messer N+ notes ($15)</span>
+          <span class="res-paid">Mike Chapple Security+ (~$15)</span>
+          <span class="res-free">NIST Cybersecurity Framework</span>
+        </div>
+        <div class="cell cell-cost">~$349</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 11–12</div>
+        <div class="cell cell-focus">Cryptography & PKI</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Symmetric vs asymmetric encryption, hashing</li>
+          <li>TLS/SSL, certificates, PKI infrastructure</li>
+          <li>Password attacks: rainbow tables, salting, bcrypt</li>
+          <li>Lab: Set up a self-signed cert in Linux</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-free">TryHackMe: Cryptography room</span>
+          <span class="res-free">Professor Messer Security+ videos</span>
+          <span class="res-free">Khan Academy: Cryptography</span>
+        </div>
+        <div class="cell cell-cost free">Free</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 13–14</div>
+        <div class="cell cell-focus">Threats & Attacks</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Malware types: ransomware, RATs, rootkits, worms</li>
+          <li>Phishing, spear phishing, vishing, pretexting</li>
+          <li>Vulnerability scanning with Nessus / OpenVAS</li>
+          <li>Lab: Analyze malware samples on ANY.RUN sandbox</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-free">ANY.RUN free sandbox</span>
+          <span class="res-paid">TryHackMe SOC Level 1 (~$14/mo)</span>
+          <span class="res-free">MITRE ATT&CK Framework</span>
+        </div>
+        <div class="cell cell-cost">$14/mo</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 15–16</div>
+        <div class="cell cell-focus">Identity, Access & Network Sec</div>
+        <div class="cell cell-tasks"><ul>
+          <li>MFA, SSO, OAuth, SAML, LDAP, Active Directory</li>
+          <li>Firewalls, IDS/IPS, proxy servers, honeypots</li>
+          <li>Wireshark lab: capture and analyze network traffic</li>
+          <li>Practice building Active Directory lab in VMs</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-free">TryHackMe: AD Basics (free)</span>
+          <span class="res-free">Wireshark (free)</span>
+          <span class="res-free">Professor Messer Domain 3</span>
+        </div>
+        <div class="cell cell-cost free">Free</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 17–18</div>
+        <div class="cell cell-focus">Security+ Exam Prep & Exam</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Complete all Security+ practice domains</li>
+          <li>5+ full practice exams — target 85%+ consistently</li>
+          <li>Review Performance-Based Questions (PBQs)</li>
+          <li>Sit CompTIA Security+ exam — you've got this</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-paid">Dion Training Practice Exams (~$15)</span>
+          <span class="res-free">Professor Messer Final Exam</span>
+          <span class="res-free">ExamCompass free tests</span>
+        </div>
+        <div class="cell cell-cost">~$404</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">03</div>
+      <div class="phase-info">
+        <div class="phase-label">// Phase Three</div>
+        <div class="phase-title">HANDS-ON LABS</div>
+        <div class="phase-meta">Weeks 19–30 &nbsp;·&nbsp; Goal: Specialization + Portfolio</div>
+      </div>
+    </div>
+    <div class="phase-note">
+      <div class="phase-note-icon">!</div>
+      <p>This is where most people stall. Commit to daily lab time — even 30 minutes. Employers care about what you've done, not just what cert you hold.</p>
+    </div>
+    <div class="weeks">
+      <div class="week-row header-row">
+        <div class="cell">Week</div>
+        <div class="cell">Focus</div>
+        <div class="cell">Tasks & Goals</div>
+        <div class="cell">Resources</div>
+        <div class="cell">Cost</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 19–21</div>
+        <div class="cell cell-focus">TryHackMe: SOC Analyst Path</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Complete SOC Level 1 learning path fully</li>
+          <li>SIEM fundamentals: log analysis, alert triage</li>
+          <li>Learn Splunk basics: queries, dashboards, alerts</li>
+          <li>Document everything in a GitHub notes repo</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-paid">TryHackMe SOC Level 1 (~$14/mo)</span>
+          <span class="res-free">Splunk Fundamentals 1 (free)</span>
+          <span class="res-free">Blue Team Labs Online (free)</span>
+        </div>
+        <div class="cell cell-cost">$14/mo</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 22–24</div>
+        <div class="cell cell-focus">Hack The Box & Offense</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Start HTB Starting Point machines (guided)</li>
+          <li>Learn: enumeration, privilege escalation, shells</li>
+          <li>Kali Linux toolset: nmap, gobuster, Burp Suite</li>
+          <li>Complete 5+ easy HTB boxes — write up each one</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-free">Hack The Box (free tier)</span>
+          <span class="res-free">IppSec YouTube walkthroughs</span>
+          <span class="res-free">THM: Jr Pen Tester path</span>
+        </div>
+        <div class="cell cell-cost free">Free</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 25–27</div>
+        <div class="cell cell-focus">Pick Your Specialization</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Path A (Offensive): Begin OSCP prep or eJPT cert</li>
+          <li>Path B (Defensive/SOC): CySA+ prep + Splunk cert</li>
+          <li>Path C (Cloud): AWS Cloud Practitioner → Security</li>
+          <li>Start writing lab reports as a blog or GitHub page</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-paid">eLearnSecurity eJPT (~$200)</span>
+          <span class="res-paid">CompTIA CySA+ (~$369)</span>
+          <span class="res-paid">AWS Cloud Practitioner (~$100)</span>
+        </div>
+        <div class="cell cell-cost">~$200–400</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 28–30</div>
+        <div class="cell cell-focus">Portfolio & GitHub Presence</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Write up 5–10 CTF / lab challenge walkthroughs</li>
+          <li>Build a home lab network diagram (use your design skills!)</li>
+          <li>Contribute to open-source security tools on GitHub</li>
+          <li>Create LinkedIn: certs, labs, write-ups, tools used</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-free">GitHub (free)</span>
+          <span class="res-free">Medium or personal site</span>
+          <span class="res-free">LinkedIn profile guides</span>
+        </div>
+        <div class="cell cell-cost free">Free</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">04</div>
+      <div class="phase-info">
+        <div class="phase-label">// Phase Four</div>
+        <div class="phase-title">JOB HUNT</div>
+        <div class="phase-meta">Weeks 31–52 &nbsp;·&nbsp; Goal: SOC Analyst Tier 1 Role</div>
+      </div>
+    </div>
+    <div class="phase-note">
+      <div class="phase-note-icon">!</div>
+      <p>SOC Analyst Tier 1 is the realistic first role. Not glamorous — but it pays well, promotes fast, and gets you inside real security operations.</p>
+    </div>
+    <div class="weeks">
+      <div class="week-row header-row">
+        <div class="cell">Week</div>
+        <div class="cell">Focus</div>
+        <div class="cell">Tasks & Goals</div>
+        <div class="cell">Resources</div>
+        <div class="cell">Cost</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 31–34</div>
+        <div class="cell cell-focus">Interview Prep & Applications</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Study common interview Qs: CIA triad, incident response, port numbers</li>
+          <li>Practice explaining your labs and certs confidently</li>
+          <li>Apply to 10–15 roles/week: SOC Analyst, IT Security Analyst</li>
+          <li>Target: MSSPs, healthcare, finance, gov contractors</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-free">TryHackMe Interview Prep rooms</span>
+          <span class="res-free">Daniel Miessler's resources</span>
+          <span class="res-free">LinkedIn Easy Apply + Indeed</span>
+        </div>
+        <div class="cell cell-cost free">Free</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 35–40</div>
+        <div class="cell cell-focus">Network & Keep Grinding</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Attend local BSides security conference (cheap/free)</li>
+          <li>Join Discord communities: TCM Security, TryHackMe</li>
+          <li>Continue HTB/CTF challenges weekly to stay sharp</li>
+          <li>Ask for informational interviews — lean on communication skills</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-free">BSidesEvents.com</span>
+          <span class="res-free">TCM Security Discord</span>
+          <span class="res-free">CTFtime.org for competitions</span>
+        </div>
+        <div class="cell cell-cost">~$20–50</div>
+      </div>
+      <div class="week-row">
+        <div class="cell cell-week">Wk 41–52</div>
+        <div class="cell cell-focus">Land the Role & Grow</div>
+        <div class="cell cell-tasks"><ul>
+          <li>Convert offer — Security+ holders command $55–75K entry level</li>
+          <li>First 90 days: absorb everything, ask questions, document processes</li>
+          <li>Identify next cert target: CySA+, OSCP, or cloud security</li>
+          <li>You're in. The field rewards skill, not tenure — grow fast.</li>
+        </ul></div>
+        <div class="cell cell-resources">
+          <span class="res-free">Glassdoor / Levels.fyi salary data</span>
+          <span class="res-free">SANS Reading Room (free research)</span>
+          <span class="res-free">Your new team + mentors</span>
+        </div>
+        <div class="cell cell-cost free">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COST SUMMARY -->
+  <div class="cost-section">
+    <div class="section-label">// total_investment.summary</div>
+    <div class="cost-grid">
+      <div class="cost-row"><div class="cost-item">CompTIA A+ (2 exams)</div><div class="cost-val">~$520</div></div>
+      <div class="cost-row"><div class="cost-item">CompTIA Network+</div><div class="cost-val">~$349</div></div>
+      <div class="cost-row"><div class="cost-item">CompTIA Security+</div><div class="cost-val">~$404</div></div>
+      <div class="cost-row"><div class="cost-item">Practice exam materials</div><div class="cost-val">~$60</div></div>
+      <div class="cost-row"><div class="cost-item">TryHackMe (12 months)</div><div class="cost-val">~$168</div></div>
+      <div class="cost-row"><div class="cost-item">Specialization cert</div><div class="cost-val">~$200–400</div></div>
+      <div class="cost-row"><div class="cost-item">BSides + misc</div><div class="cost-val">~$50</div></div>
+      <div class="cost-row total"><div class="cost-item">TOTAL</div><div class="cost-val">~$1,750–$1,950</div></div>
+    </div>
+  </div>
+
+  <!-- DESIGN CALLOUT -->
+  <div class="design-callout">
+    <div class="callout-icon">🎨</div>
+    <div>
+      <div class="callout-title">// your_design_background.advantage</div>
+      <div class="callout-body">
+        Your existing skills are a <strong>real competitive advantage</strong>. Most security candidates can't design. Use it to create polished lab write-ups and network diagrams, build a standout portfolio site, and communicate complex technical ideas clearly in interviews. Security teams genuinely need people who can do this — lean into it.
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMUNITY NOTES SECTION -->
+  <div class="notes-section">
+    <div class="notes-header">
+      <div class="notes-info">
+        <div class="section-label">// community_notes.shared</div>
+        <p>Share tips, resources, and experiences with others following this roadmap. Notes are visible to everyone.</p>
+      </div>
+    </div>
+
+    <!-- Add Note Form -->
+    <div class="add-note-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" id="noteAuthor" placeholder="e.g., Alex K." maxlength="50">
+        </div>
+        <div class="form-group">
+          <label>Phase / Week</label>
+          <select id="notePhase">
+            <option value="">Select phase or week...</option>
+            <option value="Phase 1 - IT Foundations">Phase 1 - IT Foundations</option>
+            <option value="Phase 1 - Weeks 1-2">Phase 1 - Weeks 1-2</option>
+            <option value="Phase 1 - Weeks 3-4">Phase 1 - Weeks 3-4</option>
+            <option value="Phase 1 - Weeks 5-6">Phase 1 - Weeks 5-6</option>
+            <option value="Phase 1 - Weeks 7-8">Phase 1 - Weeks 7-8</option>
+            <option value="Phase 2 - Security Fundamentals">Phase 2 - Security Fundamentals</option>
+            <option value="Phase 2 - Weeks 9-10">Phase 2 - Weeks 9-10</option>
+            <option value="Phase 2 - Weeks 11-12">Phase 2 - Weeks 11-12</option>
+            <option value="Phase 2 - Weeks 13-14">Phase 2 - Weeks 13-14</option>
+            <option value="Phase 2 - Weeks 15-16">Phase 2 - Weeks 15-16</option>
+            <option value="Phase 2 - Weeks 17-18">Phase 2 - Weeks 17-18</option>
+            <option value="Phase 3 - Hands-On Labs">Phase 3 - Hands-On Labs</option>
+            <option value="Phase 3 - Weeks 19-21">Phase 3 - Weeks 19-21</option>
+            <option value="Phase 3 - Weeks 22-24">Phase 3 - Weeks 22-24</option>
+            <option value="Phase 3 - Weeks 25-27">Phase 3 - Weeks 25-27</option>
+            <option value="Phase 3 - Weeks 28-30">Phase 3 - Weeks 28-30</option>
+            <option value="Phase 4 - Job Hunt">Phase 4 - Job Hunt</option>
+            <option value="Phase 4 - Weeks 31-34">Phase 4 - Weeks 31-34</option>
+            <option value="Phase 4 - Weeks 35-40">Phase 4 - Weeks 35-40</option>
+            <option value="Phase 4 - Weeks 41-52">Phase 4 - Weeks 41-52</option>
+            <option value="General">General</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Your Note</label>
+        <textarea id="noteContent" placeholder="Share a tip, resource recommendation, or lesson learned..." maxlength="1000"></textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn" onclick="clearForm()">Clear</button>
+        <button class="btn btn-primary" onclick="addNote()">Share Note</button>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label>Filter by:</label>
+        <select id="filterPhase" onchange="loadNotes()">
+          <option value="">All Phases</option>
+          <option value="Phase 1">Phase 1</option>
+          <option value="Phase 2">Phase 2</option>
+          <option value="Phase 3">Phase 3</option>
+          <option value="Phase 4">Phase 4</option>
+          <option value="General">General</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Sort by:</label>
+        <select id="sortOrder" onchange="loadNotes()">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Notes List -->
+    <div id="notesList" class="notes-list">
+      <div class="loading">Loading community notes...</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    CYBERSEC ROADMAP &nbsp;·&nbsp; Designer → Security Professional &nbsp;·&nbsp; 18 months · Under $2K · No bootcamp required
+  </div>
+</footer>
+
+<script>
+// Storage key prefix for community notes
+const NOTES_PREFIX = 'cybersec-note:';
+
+// Load notes on page load
+document.addEventListener('DOMContentLoaded', () => {
+  loadNotes();
+});
+
+async function addNote() {
+  const author = document.getElementById('noteAuthor').value.trim();
+  const phase = document.getElementById('notePhase').value;
+  const content = document.getElementById('noteContent').value.trim();
+
+  // Validation
+  if (!author) {
+    alert('Please enter your name');
+    return;
+  }
+  if (!phase) {
+    alert('Please select a phase or week');
+    return;
+  }
+  if (!content) {
+    alert('Please enter your note');
+    return;
+  }
+
+  // Create note object
+  const note = {
+    author,
+    phase,
+    content,
+    timestamp: Date.now()
+  };
+
+  try {
+    // Generate unique key
+    const noteKey = `${NOTES_PREFIX}${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    
+    // Save to shared storage
+    const result = await window.storage.set(noteKey, JSON.stringify(note), true);
+    
+    if (result) {
+      // Clear form
+      clearForm();
+      // Reload notes
+      await loadNotes();
+      // Show success feedback
+      alert('Note shared successfully! 🎉');
+    } else {
+      alert('Failed to save note. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error saving note:', error);
+    alert('Error saving note. Please try again.');
+  }
+}
+
+function clearForm() {
+  document.getElementById('noteAuthor').value = '';
+  document.getElementById('notePhase').value = '';
+  document.getElementById('noteContent').value = '';
+}
+
+async function loadNotes() {
+  const notesList = document.getElementById('notesList');
+  const filterPhase = document.getElementById('filterPhase').value;
+  const sortOrder = document.getElementById('sortOrder').value;
+
+  // Show loading state
+  notesList.innerHTML = '<div class="loading">Loading community notes...</div>';
+
+  try {
+    // List all notes from shared storage
+    const result = await window.storage.list(NOTES_PREFIX, true);
+    
+    if (!result || !result.keys || result.keys.length === 0) {
+      notesList.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-state-icon">📝</div>
+          <p>No community notes yet. Be the first to share!</p>
+        </div>
+      `;
+      return;
+    }
+
+    // Fetch all notes
+    const notes = [];
+    for (const key of result.keys) {
+      try {
+        const noteResult = await window.storage.get(key, true);
+        if (noteResult && noteResult.value) {
+          const note = JSON.parse(noteResult.value);
+          note.key = key; // Store key for potential future deletion
+          notes.push(note);
+        }
+      } catch (error) {
+        console.error('Error parsing note:', error);
+      }
+    }
+
+    // Filter notes
+    let filteredNotes = notes;
+    if (filterPhase) {
+      filteredNotes = notes.filter(note => note.phase.startsWith(filterPhase));
+    }
+
+    // Sort notes
+    filteredNotes.sort((a, b) => {
+      if (sortOrder === 'newest') {
+        return b.timestamp - a.timestamp;
+      } else {
+        return a.timestamp - b.timestamp;
+      }
+    });
+
+    // Display notes
+    if (filteredNotes.length === 0) {
+      notesList.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-state-icon">🔍</div>
+          <p>No notes found for this filter.</p>
+        </div>
+      `;
+      return;
+    }
+
+    notesList.innerHTML = filteredNotes.map(note => `
+      <div class="note-card">
+        <div class="note-header">
+          <div class="note-meta">
+            <div class="note-author">${escapeHtml(note.author)}</div>
+            <div class="note-phase">${escapeHtml(note.phase)}</div>
+          </div>
+          <div class="note-timestamp">${formatTimestamp(note.timestamp)}</div>
+        </div>
+        <div class="note-content">${escapeHtml(note.content)}</div>
+      </div>
+    `).join('');
+
+  } catch (error) {
+    console.error('Error loading notes:', error);
+    notesList.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-icon">⚠️</div>
+        <p>Error loading notes. Please refresh the page.</p>
+      </div>
+    `;
+  }
+}
+
+function formatTimestamp(timestamp) {
+  const date = new Date(timestamp);
+  const now = new Date();
+  const diffMs = now - date;
+  const diffMins = Math.floor(diffMs / 60000);
+  const diffHours = Math.floor(diffMs / 3600000);
+  const diffDays = Math.floor(diffMs / 86400000);
+
+  if (diffMins < 1) return 'Just now';
+  if (diffMins < 60) return `${diffMins}m ago`;
+  if (diffHours < 24) return `${diffHours}h ago`;
+  if (diffDays < 7) return `${diffDays}d ago`;
+  
+  return date.toLocaleDateString();
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+</script>
+
+</body>
+</html>
